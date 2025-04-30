@@ -4,37 +4,108 @@
 
 
 @plugin "daisyui/theme" {
-    name: "evilratio";
-    default: false;
-    prefersdark: false;
-    color-scheme: "light";
-    --color-base-100: oklch(98% 0.002 247.839);
-    --color-base-200: oklch(96% 0.003 264.542);
-    --color-base-300: oklch(92% 0.006 264.531);
-    --color-base-content: oklch(21% 0.034 264.665);
-    --color-primary: oklch(90% 0.182 98.111);
-    --color-primary-content: oklch(28% 0.066 53.813);
-    --color-secondary: oklch(0% 0 0);
-    --color-secondary-content: oklch(100% 0 0);
-    --color-accent: oklch(82% 0.111 230.318);
-    --color-accent-content: oklch(29% 0.066 243.157);
-    --color-neutral: oklch(21% 0.034 264.665);
-    --color-neutral-content: oklch(98% 0.002 247.839);
-    --color-info: oklch(60% 0.126 221.723);
-    --color-info-content: oklch(98% 0.019 200.873);
-    --color-success: oklch(62% 0.194 149.214);
-    --color-success-content: oklch(98% 0.018 155.826);
-    --color-warning: oklch(68% 0.162 75.834);
-    --color-warning-content: oklch(98% 0.026 102.212);
-    --color-error: oklch(58% 0.253 17.585);
-    --color-error-content: oklch(96% 0.015 12.422);
-    --radius-selector: 1rem;
-    --radius-field: 1rem;
-    --radius-box: 1rem;
-    --size-selector: 0.25rem;
-    --size-field: 0.25rem;
-    --border: 1px;
-    --depth: 0;
-    --noise: 1;
+  name: "evilratio";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(98% 0.002 247.839);
+  --color-base-200: oklch(96% 0.003 264.542);
+  --color-base-300: oklch(92% 0.006 264.531);
+  --color-base-content: oklch(21% 0.034 264.665);
+  --color-primary: oklch(90% 0.182 98.111);
+  --color-primary-content: oklch(28% 0.066 53.813);
+  --color-secondary: oklch(0% 0 0);
+  --color-secondary-content: oklch(100% 0 0);
+  --color-accent: oklch(82% 0.111 230.318);
+  --color-accent-content: oklch(29% 0.066 243.157);
+  --color-neutral: oklch(21% 0.034 264.665);
+  --color-neutral-content: oklch(98% 0.002 247.839);
+  --color-info: oklch(60% 0.126 221.723);
+  --color-info-content: oklch(98% 0.019 200.873);
+  --color-success: oklch(62% 0.194 149.214);
+  --color-success-content: oklch(98% 0.018 155.826);
+  --color-warning: oklch(68% 0.162 75.834);
+  --color-warning-content: oklch(98% 0.026 102.212);
+  --color-error: oklch(58% 0.253 17.585);
+  --color-error-content: oklch(96% 0.015 12.422);
+  --radius-selector: 1rem;
+  --radius-field: 1rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 1;
+}
+
+:root {
+  --background: --color-base-100;
+  --foreground: --color-base-content;
+  --card: --color-base-200;
+  --card-foreground: --color-base-content;
+  --popover: --color-base-200;
+  --popover-foreground: --color-base-content;
+  --primary: --color-primary;
+  --primary-foreground: --color-primary-content;
+  --secondary: --color-secondary;
+  --secondary-foreground: --color-secondary-content;
+  --muted: --color-base-300;
+  --muted-foreground: --color-base-content;
+  --accent: --color-accent;
+  --accent-foreground: --color-accent-content;
+  --destructive: --color-error;
+  --destructive-foreground: --color-error-content;
+  --border: --color-base-300;
+  --input: --color-base-300;
+  --ring: --color-primary;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-  
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
