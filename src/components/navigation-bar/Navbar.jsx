@@ -1,7 +1,7 @@
-import React from 'react'
-import NavbarProfile from './navbar-profile'
-import NavbarCart from './navbar-cart'
-import SearchBar from './navbar-search-bar'
+import React from 'react';
+import NavbarProfile from './navbar-profile';
+import NavbarCart from './navbar-cart';
+import SearchBar from './navbar-search-bar';
 
 const Navbar = () => {
 	return (
@@ -15,7 +15,7 @@ const Navbar = () => {
 				<NavbarProfile />
 			</div>
 		</nav>
-	)
-}
+	);
+};
 
-export default Navbar
+export default Navbar;
