@@ -3,7 +3,7 @@
 @plugin "daisyui";
 
 
-@plugin "daisyui/theme" {
+/* @plugin "daisyui/theme" {
   name: "evilratio";
   default: false;
   prefersdark: false;
@@ -108,4 +108,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
+} */

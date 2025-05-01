@@ -31,7 +31,6 @@ const NavbarCart = () => {
 						<button className='btn btn-primary w-full'>Checkout</button>
 					</div>
 				</div>
-				<p className='p-3'>Isi konten di sini</p>
 			</SheetContent>
 		</Sheet>
 	)
