@@ -1,9 +1,19 @@
 import React from 'react';
+import Card from '../components/ui/card';
+import FilterProductCategory from '../components/home/filter-product-category';
 
 const Home = () => {
   return (
     <>
-      <h1 className="text-3xl">Ini Home Page</h1>
+      <FilterProductCategory />
+      <div className='grid grid-cols-3 place-items-center gap-4 gap-y-10'>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </>
   );
 };
