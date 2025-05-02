@@ -2,14 +2,15 @@ import React from 'react';
 import NavbarProfile from './navbar-profile';
 import NavbarCart from './navbar-cart';
 import SearchBar from './navbar-search-bar';
+import { Link } from 'react-router';
 
 const Navbar = () => {
 	return (
-		<nav className="navbar bg-base-300 shadow-sm">
+		<nav className="navbar bg-base-300 shadow-sm p-5">
 			<div className="navbar-start">
-				<a className="btn btn-ghost text-xl">Ecommerce</a>
+				<Link to="/" className="btn btn-ghost text-xl">Ecommerce</Link>
 			</div>
-			<div className="navbar-end gap-3">
+			<div className="navbar-end gap-5">
 				<SearchBar />
 				<NavbarCart />
 				<NavbarProfile />
