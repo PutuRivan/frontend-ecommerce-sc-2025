@@ -4,6 +4,7 @@ import RootLayout from './layout/RootLayout';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Search from './pages/Search';
+import Product from './pages/Product';
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
       <Routes>
         <Route element={<RootLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/product/:keyword" element={<Search />} />
+          <Route path="/search/:keyword" element={<Search />} />
+          <Route path='/product/:id' element={<Product />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
