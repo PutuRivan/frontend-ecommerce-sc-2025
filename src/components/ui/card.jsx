@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 const Card = () => {
 	return (
-		<div className="card bg-base-300 w-96 shadow-sm">
+		<Link to={`/product/1`} className="card bg-base-300 w-96 shadow-sm">
 			<figure>
 				<img
 					src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -15,7 +16,7 @@ const Card = () => {
 					<button className="btn btn-primary">Buy Now</button>
 				</div>
 			</div>
-		</div>
+		</Link>
 	)
 }
 

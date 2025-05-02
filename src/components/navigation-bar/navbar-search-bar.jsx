@@ -12,7 +12,7 @@ const SearchBar = () => {
 
     if (e.key === 'Enter' || e.type === 'click') {
       e.preventDefault();
-      navigate(`/product/${keyword}`);
+      navigate(`/search/${keyword}`);
       ref.current.value = '';
     }
   };
