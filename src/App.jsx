@@ -5,6 +5,9 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Search from './pages/Search';
 import Product from './pages/Product';
+import AuthLayout from './layout/AuthLayout';
+import Register from './pages/auth/Register';
+import Login from './pages/auth/Login';
 
 const App = () => {
   return (
@@ -15,6 +18,11 @@ const App = () => {
           <Route path="/search/:keyword" element={<Search />} />
           <Route path='/product/:id' element={<Product />} />
         </Route>
+
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>  
 
         <Route path="*" element={<NotFound />} />
       </Routes>
