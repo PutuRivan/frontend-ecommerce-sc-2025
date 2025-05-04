@@ -38,6 +38,7 @@ const App = () => {
           <Route index element={<OwnerProfile />} />
         </Route>
 
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
