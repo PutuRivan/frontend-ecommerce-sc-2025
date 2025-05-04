@@ -11,6 +11,8 @@ import Login from './pages/auth/Login';
 import UserLayout from './layout/UserLayout';
 import Profile from './pages/user/Profile';
 import Purchase from './pages/user/Purchase';
+import OwnerLayout from './layout/OwnerLayout';
+import OwnerProfile from './pages/owner/Profile';
 
 const App = () => {
   return (
@@ -27,11 +29,15 @@ const App = () => {
           <Route path="/register" element={<Register />} />
         </Route>
 
-
         <Route path='/user' element={<UserLayout />}>
           <Route index element={<Profile />} />
           <Route path="purchase" element={<Purchase />} />
         </Route>
+
+        <Route path="/owner" element={<OwnerLayout />}>
+          <Route index element={<OwnerProfile />} />
+        </Route>
+
 
         <Route path="*" element={<NotFound />} />
       </Routes>
