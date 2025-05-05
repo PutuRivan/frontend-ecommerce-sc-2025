@@ -2,6 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { useAuth } from '../../context/auth-context';
+import { useNavigate } from 'react-router';
 
 const loginSchema = z.object({
 	email: z.string().email({ message: 'Invalid email' }),
@@ -9,12 +11,18 @@ const loginSchema = z.object({
 })
 
 const LoginForm = () => {
+	const { login } = useAuth()
 	const { register, handleSubmit, formState: { errors } } = useForm({
 		resolver: zodResolver(loginSchema),
 	});
+	const navigate = useNavigate()
 
-	const onSubmit = (data) => {
-		console.log(data);
+	const onSubmit = async (data) => {
+		const response = await login(data)
+		if (!response) {
+			console.log("error")
+		}
+		navigate('/')
 	};
 
 	return (

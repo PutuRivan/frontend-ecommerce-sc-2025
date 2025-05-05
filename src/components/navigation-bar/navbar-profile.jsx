@@ -1,10 +1,10 @@
 import { User } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router';
-
+import { useAuth } from '../../context/auth-context';
 const NavbarProfile = () => {
-  const role = 'user';
-  const isLogin = true;
+  const { user, logout } = useAuth();
+
   return (
     <div className="dropdown dropdown-end">
       <div
@@ -12,7 +12,7 @@ const NavbarProfile = () => {
         role="button"
         className="btn btn-ghost btn-circle avatar"
       >
-        {isLogin ? (
+        {user?.profile ? (
           <div className="w-10 rounded-full h-10">
             <img
               alt="Tailwind CSS Navbar component"
@@ -27,29 +27,45 @@ const NavbarProfile = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
       >
-        {role === 'admin' ? (
-          <>
-            <li>
-              <Link to="/dashboard" className="justify-between">
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <button>Logout</button>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link to="/user/profile" className="justify-between">
-                Profile
-              </Link>
-            </li>
-            <li>
-              <button>Logout</button>
-            </li>
-          </>
-        )}
+        <ul>
+          {user?.level === 'Store_Owner' ? (
+            <>
+              <li>
+                <Link to="/dashboard" className="justify-between">
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <button onClick={logout}>Logout</button>
+              </li>
+            </>
+          ) : user?.level === 'User' ? (
+            <>
+              <li>
+                <Link to="/user/profile" className="justify-between">
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <button onClick={logout}>Logout</button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/login" className="justify-between">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link to="/register" className="justify-between">
+                  Register
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
+
       </ul>
     </div>
   );
