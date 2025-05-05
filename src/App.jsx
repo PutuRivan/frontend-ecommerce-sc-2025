@@ -21,7 +21,7 @@ const App = () => {
         <Route element={<RootLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/search/:keyword" element={<Search />} />
-          <Route path='/product/:id' element={<Product />} />
+          <Route path="/product/:id" element={<Product />} />
         </Route>
 
         <Route element={<AuthLayout />}>
@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
         </Route>
 
-        <Route path='/user' element={<UserLayout />}>
+        <Route path="/user" element={<UserLayout />}>
           <Route index element={<Profile />} />
           <Route path="purchase" element={<Purchase />} />
         </Route>
@@ -37,7 +37,6 @@ const App = () => {
         <Route path="/owner" element={<OwnerLayout />}>
           <Route index element={<OwnerProfile />} />
         </Route>
-
 
         <Route path="*" element={<NotFound />} />
       </Routes>
