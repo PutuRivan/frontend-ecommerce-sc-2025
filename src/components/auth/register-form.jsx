@@ -25,7 +25,20 @@ const registerSchema = z.object({
       message:
         'Password minimal 8 karakter, mengandung huruf kecil, huruf besar, dan angka'
     })
-    .nonempty({ message: 'Password wajib diisi' })
+    .nonempty({ message: 'Password wajib diisi' }),
+  user_profile: z
+    .any()
+    .optional()
+    .refine((files) => {
+      if (!files || files.length === 0) return true; // optional
+      const file = files[0];
+      return (
+        file instanceof File &&
+        ['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)
+      );
+    }, {
+      message: 'File harus berupa JPG, JPEG, atau PNG',
+    }),
 });
 
 
@@ -36,10 +49,17 @@ const RegisterForm = () => {
   });
 
   const onSubmit = async (data) => {
-    const response = await signUp(data);
-    console.log(response);
-  };
-
+    const formData = new FormData();
+    formData.append('user_name', data.user_name);
+    formData.append('user_birthday', data.user_birthday);
+    formData.append('user_email', data.user_email);
+    formData.append('user_password', data.user_password);
+    if (data.user_profile && data.user_profile.length > 0) {
+      formData.append('user_profile', data.user_profile[0]); // ambil file pertama
+    }
+    const response = await signUp(formData);
+    console.log(response)
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 w-[350px]">
       <label className="floating-label">
@@ -83,11 +103,10 @@ const RegisterForm = () => {
       </label>
       <p>{errors.user_password?.message}</p>
       <fieldset className="fieldset">
-        <legend className="fieldset-legend">Your Profile</legend>
         <input {...register('user_profile')} type="file" className="file-input" />
         <label className="label">Max size 2MB</label>
       </fieldset>
-      <p>{errors.user_profile?.message}</p>
+      <p className='text-sm text-error'>{errors.user_profile?.message}</p>
       <button type='submit' className="btn btn-primary">Register</button>
     </form>
   );

@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { useAuth } from '../../context/auth-context';
 const NavbarProfile = () => {
   const { user, logout } = useAuth();
-
+  console.log(user);
   return (
     <div className="dropdown dropdown-end">
       <div
@@ -12,11 +12,11 @@ const NavbarProfile = () => {
         role="button"
         className="btn btn-ghost btn-circle avatar"
       >
-        {user?.profile ? (
+        {user?.user_profile ? (
           <div className="w-10 rounded-full h-10">
             <img
               alt="Tailwind CSS Navbar component"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              src={user?.user_profile}
             />
           </div>
         ) : (
