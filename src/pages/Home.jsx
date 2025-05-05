@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <FilterProductCategory />
-      <div className='grid grid-cols-3 place-items-center gap-4 gap-y-10'>
+      <div className="grid grid-cols-3 place-items-center gap-4 gap-y-10">
         <Card />
         <Card />
         <Card />

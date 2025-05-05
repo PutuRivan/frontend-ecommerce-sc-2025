@@ -22,7 +22,6 @@ const NavbarProfile = () => {
         ) : (
           <User size={30} />
         )}
-
       </div>
       <ul
         tabIndex={0}
@@ -39,19 +38,20 @@ const NavbarProfile = () => {
               <button>Logout</button>
             </li>
           </>
-        ) : (<>
-          <li>
-            <Link to="/user/profile" className="justify-between">
-              Profile
-            </Link>
-          </li>
-          <li>
-            <button>Logout</button>
-          </li>
-        </>)}
-
+        ) : (
+          <>
+            <li>
+              <Link to="/user/profile" className="justify-between">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <button>Logout</button>
+            </li>
+          </>
+        )}
       </ul>
-    </div >
+    </div>
   );
 };
 

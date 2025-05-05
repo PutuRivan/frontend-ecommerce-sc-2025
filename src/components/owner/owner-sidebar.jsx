@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const OwnerSidebar = () => {
-  return (
-    <div>OwnerSidebar</div>
-  )
-}
+  return <div>OwnerSidebar</div>;
+};
 
-export default OwnerSidebar
+export default OwnerSidebar;

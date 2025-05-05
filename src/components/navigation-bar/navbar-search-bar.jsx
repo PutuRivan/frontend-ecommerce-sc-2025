@@ -24,7 +24,10 @@ const SearchBar = () => {
         ref={ref}
         onKeyDown={handleSearch}
       />
-      <button onClick={handleSearch} className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+      <button
+        onClick={handleSearch}
+        className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+      >
         <Search size={24} />
       </button>
     </div>
