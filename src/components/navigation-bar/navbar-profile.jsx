@@ -28,7 +28,7 @@ const NavbarProfile = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
       >
         <ul>
-          {user?.level === 'Store_Owner' ? (
+          {user?.level === 'Store_owner' ? (
             <>
               <li>
                 <Link to="/dashboard" className="justify-between">

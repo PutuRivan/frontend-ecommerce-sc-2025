@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Card = () => {
+const Card = ({ id, nama, image, harga }) => {
   return (
-    <Link to={`/product/1`} className="card bg-base-300 w-96 shadow-sm">
+    <Link to={`/product/${id}`} className="card bg-base-300 w-96 shadow-sm">
       <figure>
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
+          src={image}
+          alt={nama}
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Nama Product</h2>
-        <p>Harga</p>
+        <h2 className="card-title">{nama}</h2>
+        <p>{harga}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Buy Now</button>
         </div>
