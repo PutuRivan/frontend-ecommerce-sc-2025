@@ -13,6 +13,7 @@ import Profile from './pages/user/Profile';
 import Purchase from './pages/user/Purchase';
 import OwnerLayout from './layout/OwnerLayout';
 import OwnerProfile from './pages/owner/Profile';
+import ProtectedRoutes from './middlewares/protected-routes';
 
 const App = () => {
   return (
@@ -29,13 +30,17 @@ const App = () => {
           <Route path="/register" element={<Register />} />
         </Route>
 
-        <Route path="/user" element={<UserLayout />}>
-          <Route index element={<Profile />} />
-          <Route path="purchase" element={<Purchase />} />
+        <Route element={<ProtectedRoutes allowedRoles={['User']} />}>
+          <Route path="/user" element={<UserLayout />}>
+            <Route index element={<Profile />} />
+            <Route path="purchase" element={<Purchase />} />
+          </Route>
         </Route>
 
-        <Route path="/owner" element={<OwnerLayout />}>
-          <Route index element={<OwnerProfile />} />
+        <Route element={<ProtectedRoutes allowedRoles={['Store_Owner']} />}>
+          <Route path="/owner" element={<OwnerLayout />}>
+            <Route index element={<OwnerProfile />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />
