@@ -1,19 +1,19 @@
-import React from 'react'
-import { useAuth } from '../context/auth-context'
-import { Navigate, Outlet } from 'react-router'
+import React from 'react';
+import { useAuth } from '../context/auth-context';
+import { Navigate, Outlet } from 'react-router';
 
 const ProtectedRoutes = ({ allowedRoles }) => {
-    const { user, isAuthenticated } = useAuth()
+  const { user, isAuthenticated } = useAuth();
 
-    if (!isAuthenticated) {
-        return <Navigate to="/login" replace />
-    }
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
 
-    if (!allowedRoles.includes(user?.level)) {
-        return <Navigate to="/" replace />
-    }
+  if (!allowedRoles.includes(user?.level)) {
+    return <Navigate to="/" replace />;
+  }
 
-    return <Outlet />
-}
+  return <Outlet />;
+};
 
-export default ProtectedRoutes
+export default ProtectedRoutes;

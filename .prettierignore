@@ -1,0 +1,41 @@
+# Ignore all files in the public folder
+public/**/*
+
+# Ignore all files in the build folder
+build/**/*
+
+# Ignore all files in the dist folder
+dist/**/*
+
+# Ignore all files in the node_modules folder
+node_modules/**/*
+
+# Ignore all files in the .next folder
+.next/**/*
+
+# Ignore all files in the .vercel folder
+.vercel/**/*
+
+# Ignore all files in the out folder
+out/**/*
+
+# Ignore all files in the coverage folder
+coverage/**/*
+
+# Ignore all files in the .github folder
+.github/**/*
+
+# Ignore all files in the .husky folder
+.husky/**/*
+
+# Ignore all files in the .vscode folder
+.vscode/**/*
+
+# Ignore all files in the .next folder
+.next/**/*
+
+# Ignore all files in the .prettierrc file
+.prettierrc
+
+# Ignore all files in the .prettierrc.json file
+.prettierrc.json

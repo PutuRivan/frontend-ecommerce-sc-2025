@@ -6,61 +6,72 @@ import { useAuth } from '../../context/auth-context';
 import { useNavigate } from 'react-router';
 
 const loginSchema = z.object({
-	email: z.string().email({ message: 'Invalid email' }),
-	password: z.string().min(8, { message: 'Password must be at least 8 characters' }),
-})
+  email: z.string().email({ message: 'Invalid email' }),
+  password: z
+    .string()
+    .min(8, { message: 'Password must be at least 8 characters' }),
+});
 
 const LoginForm = () => {
-	const { login } = useAuth()
-	const { register, handleSubmit, formState: { errors } } = useForm({
-		resolver: zodResolver(loginSchema),
-	});
-	const navigate = useNavigate()
+  const { login } = useAuth();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(loginSchema),
+  });
+  const navigate = useNavigate();
 
-	const onSubmit = async (data) => {
-		const response = await login(data)
-		if (!response) {
-			console.log("error")
-		}
-		navigate('/')
-	};
+  const onSubmit = async (data) => {
+    const response = await login(data);
+    if (!response) {
+      console.log('error');
+    }
+    navigate('/');
+  };
 
-	return (
-		<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 w-[350px]">
-			<label className="floating-label">
-				<span>Your Email</span>
-				<input
-					{...register('email')}
-					type="text"
-					placeholder="email@example.com"
-					className="input input-md w-full"
-				/>
-			</label>
-			<p className='text-sm text-error'>{errors.email?.message}</p>
-			<label className="floating-label">
-				<span>Your Password</span>
-				<input
-					{...register('password')}
-					type="password"
-					placeholder="password"
-					className="input input-md w-full"
-				/>
-			</label>
-			<p className='text-sm text-error'>{errors.password?.message}</p>
-			<div className="flex justify-between">
-				<label className="label">
-					<input
-						type="checkbox"
-						defaultChecked
-						className="checkbox checkbox-md"
-					/>
-					Remember me
-				</label>
-				<a className="link link-primary">Forget Password</a>
-			</div>
-			<button type="submit" className="btn btn-primary">Login</button>
-		</form>
-	);
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-5 w-[350px]"
+    >
+      <label className="floating-label">
+        <span>Your Email</span>
+        <input
+          {...register('email')}
+          type="text"
+          placeholder="email@example.com"
+          className="input input-md w-full"
+        />
+      </label>
+      <p className="text-sm text-error">{errors.email?.message}</p>
+      <label className="floating-label">
+        <span>Your Password</span>
+        <input
+          {...register('password')}
+          type="password"
+          placeholder="password"
+          className="input input-md w-full"
+        />
+      </label>
+      <p className="text-sm text-error">{errors.password?.message}</p>
+      <div className="flex justify-between">
+        <label className="label">
+          <input
+            type="checkbox"
+            defaultChecked
+            className="checkbox checkbox-md"
+          />
+          Remember me
+        </label>
+        <a className="link link-primary">Forget Password</a>
+      </div>
+      <button type="submit" className="btn btn-primary">
+        Login
+      </button>
+    </form>
+  );
 };
 
 export default LoginForm;

@@ -14,10 +14,7 @@ const NavbarProfile = () => {
       >
         {user?.user_profile ? (
           <div className="w-10 rounded-full h-10">
-            <img
-              alt="Tailwind CSS Navbar component"
-              src={user?.user_profile}
-            />
+            <img alt="Tailwind CSS Navbar component" src={user?.user_profile} />
           </div>
         ) : (
           <User size={30} />
@@ -65,7 +62,6 @@ const NavbarProfile = () => {
             </>
           )}
         </ul>
-
       </ul>
     </div>
   );

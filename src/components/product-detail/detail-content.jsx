@@ -3,14 +3,16 @@ import CardAction from './card-action';
 import { Star } from 'lucide-react';
 
 const DetailContent = ({ id }) => {
-  const [Data, setData] = useState([])
+  const [Data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/product/${id}`);
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/product/${id}`
+        );
         const data = await response.json();
-        console.log(data.data)
+        console.log(data.data);
         setData(data.data);
       } catch (error) {
         console.error(error);
@@ -38,9 +40,11 @@ const DetailContent = ({ id }) => {
               <Star />
             </span>
           </p>
-          <div className='flex flex-row gap-2'>
+          <div className="flex flex-row gap-2">
             {Data.ProductCategory?.map((item, index) => (
-              <span key={index} className="badge badge-info badge-md">{item.category.category_name}</span>
+              <span key={index} className="badge badge-info badge-md">
+                {item.category.category_name}
+              </span>
             ))}
           </div>
           <div className="mt-5 w-96">

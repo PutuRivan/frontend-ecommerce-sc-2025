@@ -6,12 +6,14 @@ import { useParams } from 'react-router';
 
 const Product = () => {
   const { id } = useParams();
-  const [Data, setData] = useState([])
+  const [Data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/products`);
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/products`
+        );
         const data = await response.json();
         setData(data.products);
       } catch (error) {
@@ -31,7 +33,13 @@ const Product = () => {
           <h1 className="text-3xl font-semibold">Recomendation</h1>
           <div className="flex flex-row flex-wrap gap-10 justify-evenly">
             {Data.slice(0, 3).map((item, index) => (
-              <Card key={index} id={item.id_product} nama={item.product_name} image={item.product_thumbnail} harga={item.price_range} />
+              <Card
+                key={index}
+                id={item.id_product}
+                nama={item.product_name}
+                image={item.product_thumbnail}
+                harga={item.price_range}
+              />
             ))}
           </div>
         </div>

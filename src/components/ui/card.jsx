@@ -5,10 +5,7 @@ const Card = ({ id, nama, image, harga }) => {
   return (
     <Link to={`/product/${id}`} className="card bg-base-300 w-96 shadow-sm">
       <figure>
-        <img
-          src={image}
-          alt={nama}
-        />
+        <img src={image} alt={nama} />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{nama}</h2>
