@@ -39,27 +39,34 @@ export const AuthProvider = ({ children }) => {
           headers: {
             'Content-Type': 'application/json',
           },
+          credentials: 'include',
           body: JSON.stringify(form),
         }
       );
       const data = await response.json();
-
+      console.log(data)
       if (!response.ok) {
         throw new Error(data.message);
       }
 
       setUser(data.data);
       sessionStorage.setItem('user', JSON.stringify(data.data));
-      sessionStorage.setItem('token', JSON.stringify(data.token));
       return true;
     } catch (error) {
       console.error(error);
     }
   };
 
-  const logout = () => {
+  const logout = async () => {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
+      method: 'POST',
+      credentials: 'include',
+    })
+    const data = await response.json();
+    console.log(data);
+
     setUser(null);
-    sessionStorage.removeItem('token');
+    // sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
   };
 
