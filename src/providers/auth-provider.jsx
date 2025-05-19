@@ -39,6 +39,7 @@ export const AuthProvider = ({ children }) => {
           headers: {
             'Content-Type': 'application/json',
           },
+          credentials: 'include',
           body: JSON.stringify(form),
         }
       );

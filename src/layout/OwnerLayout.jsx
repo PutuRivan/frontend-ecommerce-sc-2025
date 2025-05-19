@@ -8,7 +8,7 @@ const OwnerLayout = () => {
     <>
       <Navbar />
       <div className="flex gap-5">
-        <OwnerSidebar />
+        {/* <OwnerSidebar /> */}
         <Outlet />
       </div>
     </>

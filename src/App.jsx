@@ -14,6 +14,7 @@ import Purchase from './pages/user/Purchase';
 import OwnerLayout from './layout/OwnerLayout';
 import OwnerProfile from './pages/owner/Profile';
 import ProtectedRoutes from './middlewares/protected-routes';
+import RegisterOwner from './pages/user/RegisterOwner';
 
 const App = () => {
   return (
@@ -34,11 +35,12 @@ const App = () => {
           <Route path="/user" element={<UserLayout />}>
             <Route index element={<Profile />} />
             <Route path="purchase" element={<Purchase />} />
+            <Route path='create-store' element={<RegisterOwner />} />
           </Route>
         </Route>
 
-        <Route element={<ProtectedRoutes allowedRoles={['Store_Owner']} />}>
-          <Route path="/owner" element={<OwnerLayout />}>
+        <Route element={<ProtectedRoutes allowedRoles={['Store_owner']} />}>
+          <Route path="/dashboard" element={<OwnerLayout />}>
             <Route index element={<OwnerProfile />} />
           </Route>
         </Route>

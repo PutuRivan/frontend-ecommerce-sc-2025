@@ -44,6 +44,12 @@ const NavbarProfile = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/user/create-store" className="justify-between">
+                  Create Store
+                </Link>
+
+              </li>
+              <li>
                 <button onClick={logout}>Logout</button>
               </li>
             </>
